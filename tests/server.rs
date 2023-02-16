@@ -7,6 +7,7 @@ use wasm_nano_redis::*;
 wasm_bindgen_test_configure!(run_in_browser);
 
 #[wasm_bindgen_test]
-fn version_is_configured() {
-    assert_eq!(version(), "0.1.0");
+fn execute_command_success() {
+    let srv = server::Server::new();
+    assert_eq!(srv.execute("GET name".into()), true);
 }
